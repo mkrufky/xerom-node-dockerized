@@ -12,5 +12,6 @@ FROM alpine:latest
 RUN apk add --no-cache ca-certificates
 COPY --from=builder /usr/local/bin/geth /usr/local/bin/geth-xerom
 
-EXPOSE 30305 30305/udp
+EXPOSE 30307 30307/udp
 ENTRYPOINT ["geth-xerom"]
+CMD ["--syncmode=fast", "--cache=512", "--port=30307"]
