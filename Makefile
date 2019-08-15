@@ -10,7 +10,7 @@ env: xerom
 
 build: env
 	@echo building xerom:${GIT_REF}
-	@cd xerom; docker build -f Dockerfile -t xerom:${GIT_REF} .
+	@cd xerom; docker build -f ../Dockerfile -t xerom:${GIT_REF} .
 
 daemon: build
 	@docker run --mount source=xerom,target=/root xerom:${GIT_REF}
