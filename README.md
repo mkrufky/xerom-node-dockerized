@@ -67,7 +67,9 @@ systemctl restart xeromnode
 # Docker Hub:
 Skip the entire build process by using a prebuilt image from Docker Hub.  This is only recommended for testing & development.  We cannot guaruntee how often the image will be updated.
 
-## Edit the `Makefile` and replace all occurrances of `xerom:${GIT_REF}` with `wattpool/xeromnode`, then skip to the section below "To run as a systemd service".
+## To use the above systemd service together with docker hub images:
+
+Edit the `Makefile` and replace all occurrances of `xerom:${GIT_REF}` with `wattpool/xeromnode`, then coninue setup in the section aboove, "To run as a systemd service".
 
 ## To pull the image:
 ```
