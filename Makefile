@@ -1,12 +1,8 @@
 image: build
 
-xerom:
-	@git clone https://github.com/xero-official/go-xerom xerom
-
-env: xerom
+env:
 	$(eval DOC_GIT_REF=$(shell git rev-parse --short HEAD))
-	@cd xerom; $(eval XERO_GIT_REF=$(shell git rev-parse --short HEAD))
-	$(eval GIT_REF=$(shell echo ${DOC_GIT_REF})$(shell echo ${XERO_GIT_REF}))
+	$(eval GIT_REF=$(shell echo ${DOC_GIT_REF}))
 
 build: env
 	@echo building xerom:${GIT_REF}
