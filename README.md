@@ -6,6 +6,32 @@ This method uses a [bind mount](https://docs.docker.com/storage/bind-mounts) to 
 
 To simplify things, basic operations have been added as `Makefile` commands.
 
+## Docker Hub:
+Skip the entire build process by using a prebuilt image from Docker Hub.  This is only recommended for testing & development.  We cannot guaruntee how often the image will be updated.
+
+1 - Edit the `Makefile` and replace all occurrances of `xerom:${GIT_REF}` with `wattpool/xeromnode`, then skip to the section below "To run as a systemd service".
+
+2 - To pull the image:
+```
+docker pull wattpool/xeromnode
+```
+
+3 - To run the image:
+```
+docker run wattpool/xeromnode
+```
+
+4 - To run the image with a bind mount:
+```
+docker run --mount source=xerom,target=/root wattpool/xeromnode
+```
+
+5 - To access the running node interactively with the geth console:
+```
+docker run wattpool/xeromnode attach
+```
+
+
 ## To build:
 ```
 make image
