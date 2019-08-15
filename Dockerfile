@@ -4,7 +4,10 @@ FROM golang:1.12-alpine as builder
 RUN apk add --no-cache make gcc musl-dev linux-headers git
 
 WORKDIR /
-RUN git clone --depth 1 https://github.com/xero-official/go-xerom.git && cd /go-xerom && make && cp -a /go-xerom/build/bin/geth /usr/local/bin/ && cd / && rm -rf /go-xerom
+RUN git clone --depth 1 https://github.com/xero-official/go-xerom.git && \
+    cd /go-xerom && make && \
+    cp -a /go-xerom/build/bin/geth /usr/local/bin/ && \
+    cd / && rm -rf /go-xerom
 
 # Pull Geth into a second stage deploy alpine container
 FROM alpine:latest
